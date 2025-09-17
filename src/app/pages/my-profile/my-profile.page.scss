@@ -1,0 +1,48 @@
+* {
+    font-family: cursive;
+}
+
+.header {
+    text-align: center;
+}
+
+.profile {
+    background: fixed;
+    background-color: gray;
+    border-top: 15px;
+    border: dotted;
+    text-align: center;
+}
+
+.profileLbl, .nameLbl, .mailLbl, .locationLbl, .titleLbl {
+    background: fixed;
+    font-weight: bold;
+    font-size: 25px;
+    text-align: center;
+    border-style: dotted;
+    border-radius: 50px;
+    width: 50%;
+    margin: 10px 10px 10px 25%;
+}
+
+.photo{
+    width: 15%;
+    margin: 1px 1px 1px 0%;
+    border-radius: 80%;
+}
+
+.name, .mail, .location, .title {
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    background: fixed;
+    text-align: center;
+    width: 50%;
+    margin: 10px 10px 10px 25%;
+}
+
+.profile {
+    margin: 3% 10% 10% 25%;
+    width: 50%;
+    border-style: dotted;
+}

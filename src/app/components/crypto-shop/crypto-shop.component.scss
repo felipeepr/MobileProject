@@ -1,0 +1,41 @@
+.BTC {
+    background: fixed;
+    background-color: black ;
+    width: 25%;
+    height: 350px;
+    margin: 10px 10px 10px 10px;
+    border: 1px;
+    border-style: solid;
+    display: inline-block;
+    vertical-align: top;
+}
+
+@media screen and (max-width:600px) {
+    .BTC {
+      display: inline-block;
+      width: 95%;
+    }
+  }
+
+.img {
+    margin-top: 0px;
+    margin-left: 5%;
+    width: 50%;
+    float: left;
+    padding-right: 10px;
+}
+
+* {
+    align-content: center;
+    font-family: cursive;
+}
+
+ion-input {
+    width: 20%;
+    text-align: center;
+    display: inline-block;
+}
+
+ion-button {
+    width: 50%;
+}

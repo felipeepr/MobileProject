@@ -1,0 +1,46 @@
+.BTC {
+    background: fixed;
+    background-color: black ;
+    width: 50%;
+    height: 70%;
+    margin: 20px 10px 10px 26%;
+}
+
+.ETH {
+    background: fixed;
+    background-color: black ;
+    width: 50%;
+    height: 70%;
+    margin: 20px 10px 10px 26%;
+}
+
+.ethImg {
+    margin-left: 190px;
+    border-style: dotted;
+    border-color: white;
+    width: 300px;
+    height: 300px;
+}
+
+.btcImg {
+    margin-top: 20px;
+    width: 50%;
+}
+
+.changeBtn {
+    width: 50%;
+    color: white;
+    
+}
+
+* {
+    text-align: center;
+    align-content: center;
+    font-family: cursive;
+}
+
+ion-input {
+    width: 50%;
+    margin-left: 170px;
+    text-align: center;
+}
