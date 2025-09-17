@@ -18,9 +18,11 @@ import { map } from 'rxjs';
   imports: [ IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonInput, IonImg, IonButton, IonIcon, IonText, IonImg, CreateCoinsComponent],
 })
 
-export class CryptoShopComponent  implements OnInit {
-  coins: Coins;
-  coinsInterface: CoinsInterface;
+export class CryptoShopComponent  implements OnInit, CoinsInterface{
+  img: string;
+  id: number;
+  name?: string;
+  price: number;
   coinsList = [
     {
       img: "https://www.criptofacil.com/es/wp-content/uploads/sites/2/2025/02/IMG_0183.png",
@@ -56,6 +58,14 @@ export class CryptoShopComponent  implements OnInit {
 
   sell(i){
     alert(i + " SOLD");
+  }
+
+  listCoin (img: string, id: number, name: string, price: number){
+    if (img != null && id != null && name != null && price != null){
+      this.coinsList.push({img: this.img, id: this.id, name: this.name, price: this.price});
+    } else {
+      alert("You're missing to fill a field")
+    }
   }
 
   switchForm: boolean = false;

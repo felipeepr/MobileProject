@@ -7,7 +7,7 @@ import { CoinsInterface } from 'src/app/data/interfaces/coinsInterface.model';
   selector: 'app-create-coins',
   templateUrl: './create-coins.component.html',
   styleUrls: ['./create-coins.component.scss'],
-  imports: [ IonInput, FormsModule],
+  imports: [ IonInput, FormsModule, IonButton],
 })
 export class CreateCoinsComponent  implements OnInit, CoinsInterface {
   img: string;
@@ -18,5 +18,6 @@ export class CreateCoinsComponent  implements OnInit, CoinsInterface {
   constructor() { }
 
   ngOnInit() {}
+
 
 }

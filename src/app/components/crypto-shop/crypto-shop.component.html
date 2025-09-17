@@ -1,4 +1,11 @@
-<app-create-coins></app-create-coins>
+<div class="coin">
+  <p>LIST A COIN</p>
+  <ion-input [(ngModel)]="img" label="IMAGE (link):"></ion-input>
+  <ion-input [(ngModel)]="id" label="ID"></ion-input>
+  <ion-input [(ngModel)]="name" label="NAME"></ion-input>
+  <ion-input [(ngModel)]="price" label="PRICE"></ion-input>
+  <ion-button (click)="listCoin(img, id, name, price)">REGISTRAR</ion-button>
+</div>
 <div class="BTC" *ngFor="let coin of coinsList">
 <!--<img width="150px" height="150px" [src]="img" class="btcImg"/>
   <ion-button (click)="changeImg()" class="changeBtn" size="small">
