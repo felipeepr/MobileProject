@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonInput, IonImg, IonButton, IonIcon, IonText } from '@ionic/angular/standalone';
@@ -7,6 +7,7 @@ import { CreateCoinsComponent } from 'src/app/components/create-coins/create-coi
 
 import { addIcons } from 'ionicons';
 import { heart, logoApple, settingsSharp, star } from 'ionicons/icons';
+import { Coins } from 'src/app/data/classes/coins.model';
 
 @Component({
   selector: 'app-home',
@@ -22,6 +23,13 @@ export class HomePage implements OnInit {
     addIcons({ heart, logoApple, settingsSharp, star });
    }
 
+  coinsList: Coins[] = [];
+
+  @Input() createCoin: Coins[];
+
+  receiveChildMsg (childMsg: Coins) {
+    
+  }
 
   ngOnInit() {
   }

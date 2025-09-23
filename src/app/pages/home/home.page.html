@@ -4,6 +4,7 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
+<app-create-coins (listCoin)="receiveChildMsg($event)"></app-create-coins>
 <app-crypto-shop></app-crypto-shop>
 <!--
 <div class="ETH">
