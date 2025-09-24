@@ -1,24 +1,15 @@
 <div class="BTC" *ngFor="let coin of coinsList">
   <ion-img src="{{coin.img}}" class="img"></ion-img>
-  <ion-input [disabled]="switchForm" labelPlacement="floating" value="{{coin.id}}">
-    <div slot="label">ID:<!--<ion-text color="danger">(Required):</ion-text>--></div>
+  <ion-input labelPlacement="floating" value="{{coin.id}}">
+    <div slot="label">ID:<!--<ion-text color="danger">(Required):</ion-text> --></div>
   </ion-input>
-  <ion-input [disabled]="switchForm" labelPlacement="floating" value="{{coin.name}}">
+  <ion-input labelPlacement="floating" value="{{coin.name}}">
     <div slot="label">NAME: </div>
   </ion-input>
-  <ion-input [disabled]="switchForm" labelPlacement="floating" value="{{coin.price}}">
+  <ion-input labelPlacement="floating" value="{{coin.price}}">
     <div slot="label">PRICE ($): </div>
   </ion-input>
   <ion-button (click)="buy(coin.name)">BUY</ion-button>
-  <ion-button (click)="sell(coin.name)">SOLD</ion-button>
-<!--
-  <ion-input [disabled]="switchForm" label="Coin Name: " labelPlacement="floating"></ion-input>
-  <ion-input [disabled]="switchForm" label="Price: " labelPlacement="floating"></ion-input>
-  <ion-button (click)="statusForm()" class="changeBtn" size="small">DISABLE/ENABLE FORM
-    <ion-icon slot="start" name="star"></ion-icon>
-  </ion-button>
-    <ion-button (click)="saveForm()" class="changeBtn" size="small">
-      <ion-icon slot="start" name="star"></ion-icon>
-    SAVE FORM</ion-button>
--->
+  <ion-button (click)="sell(coin.name, coin.id)">SOLD</ion-button>
+  <ion-button (click)="deleteCoin(coin.id)">REMOVE COIN</ion-button>
 </div>

@@ -8,6 +8,7 @@ import { CreateCoinsComponent } from 'src/app/components/create-coins/create-coi
 import { addIcons } from 'ionicons';
 import { heart, logoApple, settingsSharp, star } from 'ionicons/icons';
 import { Coins } from 'src/app/data/classes/coins.model';
+import { CoinsInterface } from 'src/app/data/interfaces/coinsInterface.model';
 
 @Component({
   selector: 'app-home',
@@ -23,12 +24,14 @@ export class HomePage implements OnInit {
     addIcons({ heart, logoApple, settingsSharp, star });
    }
 
-  coinsList: Coins[] = [];
+  coinsList: CoinsInterface[] = [];
 
-  @Input() createCoin: Coins[];
+  addCoin (newCoin: CoinsInterface) {
+    this.coinsList.push(newCoin);
+  }
 
-  receiveChildMsg (childMsg: Coins) {
-    
+  removeCoin(id: number) {
+    this.coinsList = this.coinsList.filter(coin => coin.id !== id);
   }
 
   ngOnInit() {

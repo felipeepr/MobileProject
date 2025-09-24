@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonInput, IonImg, IonButton, IonIcon, IonText } from '@ionic/angular/standalone';
@@ -18,11 +18,10 @@ import { map } from 'rxjs';
   imports: [ IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonInput, IonImg, IonButton, IonIcon, IonText, IonImg, CreateCoinsComponent],
 })
 
-export class CryptoShopComponent  implements OnInit, CoinsInterface{
-  img: string;
-  id: number;
-  name?: string;
-  price: number;
+export class CryptoShopComponent  implements OnInit{
+  @Input() coinsList: CoinsInterface[] = [];
+  @Output() coinDeleted = new EventEmitter<number>();
+/*
   coinsList = [
     {
       img: "https://www.criptofacil.com/es/wp-content/uploads/sites/2/2025/02/IMG_0183.png",
@@ -49,17 +48,21 @@ export class CryptoShopComponent  implements OnInit, CoinsInterface{
       price: 0.001,
     },
   ];
+*/
+
+deleteCoin(id: number){
+  this.coinDeleted.emit(id);
+}
 
   buy(i){
     alert(i + " BOUGHT");
-    
-    //this.coinsList.push({img: 'https://s2.coinmarketcap.com/static/img/coins/200x200/30933.png', id: 1, name: 'Hola', price: 3000});
   }
 
-  sell(i){
+  sell(i, j){
     alert(i + " SOLD");
+    this.deleteCoin(j);
   }
-
+/*
   listCoin (img: string, id: number, name: string, price: number){
     if (img != null && id != null && name != null && price != null){
       this.coinsList.push({img: this.img, id: this.id, name: this.name, price: this.price});
@@ -67,60 +70,10 @@ export class CryptoShopComponent  implements OnInit, CoinsInterface{
       alert("You're missing to fill a field")
     }
   }
-
-  switchForm: boolean = false;
-  /*
-  user: string = "";
-  deliverAddress: string = "RANDOM STREET";
-  country: string = "USA";
-  city: string = "NY";
-  lang: string = "ES-EN";
-  currency: string = "BTC";
-  img: string = "https://img.freepik.com/vector-gratis/fondo-moneda-oro-bitcoin-criptomoneda_1017-31505.jpg";
-  switchImg: boolean = true;
-  */
-
+*/
   constructor() { }
 
   ngOnInit() {}
 
-  changePrice() {
-    let newCoin = new Coins(1, "Hola", 2);
-  }
-/*
-  changeImg() {
-    if(this.switchImg){
-      this.img = "https://images.theconversation.com/files/506823/original/file-20230127-16-4cgk1e.jpeg?ixlib=rb-4.1.0&q=45&auto=format&w=926&fit=clip";
-      console.log("IMAGE CHANGED FROM THE ORIGINAL");
-      this.switchImg = false;
-    } else {
-      this.img = "https://img.freepik.com/vector-gratis/fondo-moneda-oro-bitcoin-criptomoneda_1017-31505.jpg";
-      console.log("IMAGE CHANGED TO THE ORIGINAL");
-      this.switchImg = true;
-    }
-  }
-
-  statusForm(){
-    if(!this.switchForm){
-      this.switchForm = true;
-      console.log("FORM DISABLED");
-    } else {
-      this.switchForm = false
-      console.log("FORM ENABLED");
-    }
-  }
-
-  saveForm(){
-    if(this.user.length < 1 || this.deliverAddress.length < 1 || this.country.length < 1 || this.city.length < 1 || this.lang.length < 1 
-      || this.currency.length< 1) {
-      console.log("The form cannot be saved because are fields that still empty");
-      alert("The form cannot be saved because are fields that still empty");
-    } else {
-      console.log("The form was succesfully saved!");
-      alert("The form was succesfully saved!");
-    }
-    
-  }
-  */
   }
 

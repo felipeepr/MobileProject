@@ -4,8 +4,8 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-<app-create-coins (listCoin)="receiveChildMsg($event)"></app-create-coins>
-<app-crypto-shop></app-crypto-shop>
+<app-create-coins (coinCreated)="addCoin($event)"></app-create-coins>
+<app-crypto-shop [coinsList]="coinsList" (coinDeleted)="removeCoin($event)"></app-crypto-shop>
 <!--
 <div class="ETH">
   <h1>NEXT </h1>

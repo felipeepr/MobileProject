@@ -1,6 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, Input} from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonInput, IonImg, IonButton, IonIcon, IonText } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonInput, IonImg, IonButton, IonIcon, IonText, IonLabel } from '@ionic/angular/standalone';
 import { Coins } from 'src/app/data/classes/coins.model';
 import { CoinsInterface } from 'src/app/data/interfaces/coinsInterface.model';
 
@@ -9,28 +9,34 @@ import { CoinsInterface } from 'src/app/data/interfaces/coinsInterface.model';
   templateUrl: './create-coins.component.html',
   standalone: true,
   styleUrls: ['./create-coins.component.scss'],
-  imports: [ IonInput, FormsModule, IonButton, Coins],
+  imports: [ IonInput, FormsModule, IonButton, IonLabel],
 })
 export class CreateCoinsComponent  implements OnInit {
-  img: string = "";
-  id: number = 0;
-  name?: string = "";
-  price: number = 0;
-  @Output() listCoin = new EventEmitter<Coins>();
+  @Output() coinCreated = new EventEmitter<CoinsInterface>();
+  @Output() coinDel = new EventEmitter<CoinsInterface>();
+  img: string;
+  id: number;
+  name: string;
+  price: number;
+  newCoin: CoinsInterface = {
+      img: "",
+      id: null,
+      name: "",
+      price: null,
+  };
 
   constructor() { }
 
   ngOnInit() {}
 
-  sendCoin (){
-    let newCoin: Coins = {
-      img: this.img,
-      id: this.id,
-      name: this.name,
-      price: this.price
+  createCoin (){
+    this.coinCreated.emit(this.newCoin);
+    this.newCoin = {
+      img: "",
+      id: null,
+      name: "",
+      price: null,
     }
-
-    this.listCoin.emit(newCoin);
   };
 /*
   listCoin (img: string, id: number, name: string, price: number){
