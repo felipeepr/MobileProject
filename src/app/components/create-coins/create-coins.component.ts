@@ -1,7 +1,7 @@
-import { Component, EventEmitter, OnInit, Output, Input} from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, Input, inject} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonInput, IonImg, IonButton, IonIcon, IonText, IonLabel } from '@ionic/angular/standalone';
-import { Coins } from 'src/app/data/classes/coins.model';
+import { CryptoServices } from 'src/app/data/services/crypto-services';
 import { CoinsInterface } from 'src/app/data/interfaces/coinsInterface.model';
 
 @Component({
@@ -12,6 +12,8 @@ import { CoinsInterface } from 'src/app/data/interfaces/coinsInterface.model';
   imports: [ IonInput, FormsModule, IonButton, IonLabel],
 })
 export class CreateCoinsComponent  implements OnInit {
+  cryptoService = inject(CryptoServices);
+  coinSaved: CoinsInterface[];
   @Output() coinCreated = new EventEmitter<CoinsInterface>();
   @Output() coinDel = new EventEmitter<CoinsInterface>();
   img: string;
@@ -25,9 +27,17 @@ export class CreateCoinsComponent  implements OnInit {
       price: null,
   };
 
+  newCoin2: CoinsInterface = {
+    img: "",
+    id: null,
+    name: "",
+    price: null,
+};
+
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   createCoin (){
     this.coinCreated.emit(this.newCoin);
@@ -37,6 +47,10 @@ export class CreateCoinsComponent  implements OnInit {
       name: "",
       price: null,
     }
+  };
+
+  createCoinService (){
+    this.cryptoService.saveCoins(this.newCoin);
   };
 /*
   listCoin (img: string, id: number, name: string, price: number){

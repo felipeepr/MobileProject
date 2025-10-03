@@ -1,26 +1,21 @@
 import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonInput, IonImg, IonButton, IonIcon, IonText } from '@ionic/angular/standalone';
-import { Coins } from '../../data/classes/coins.model'
-import { CreateCoinsComponent } from '../create-coins/create-coins.component';
-import { CoinsInterface } from '../../data/interfaces/coinsInterface.model';
-
-import { addIcons } from 'ionicons';
-import { heart, logoApple, settingsSharp, star } from 'ionicons/icons';
-import { map } from 'rxjs';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonInput, IonImg, IonButton, IonIcon, IonText} from '@ionic/angular/standalone';
 import { CryptoServices } from 'src/app/data/services/crypto-services';
+import { CoinsInterface } from 'src/app/data/interfaces/coinsInterface.model';
 
 @Component({
   selector: 'app-crypto-shop',
-  templateUrl: './crypto-shop.component.html',
+  templateUrl: './crypto-shop.page.html',
   standalone: true,
-  styleUrls: ['./crypto-shop.component.scss'],
-  imports: [ IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonInput, IonImg, IonButton, IonIcon, IonText, IonImg, CreateCoinsComponent],
+  styleUrls: ['./crypto-shop.page.scss'],
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonInput, IonImg, IonButton, IonIcon, IonText, IonImg,  ]
 })
+export class CryptoShopPage implements OnInit {
 
-export class CryptoShopComponent  implements OnInit{
   cryptoService = inject(CryptoServices);
+  coinGot: CoinsInterface[];
   @Input() coinsList: CoinsInterface[] = [];
   @Output() coinDeleted = new EventEmitter<number>();
 
@@ -51,9 +46,9 @@ export class CryptoShopComponent  implements OnInit{
     },
   ];
 
-deleteCoin(id: number){
-  this.coinDeleted.emit(id);
-}
+  deleteCoin(id: number){
+    this.coinGot = this.coinsList.filter(coin => coin.id !== id);
+  }x
 
   buy(i){
     alert(i + " BOUGHT");
@@ -74,7 +69,8 @@ deleteCoin(id: number){
 */
   constructor() { }
 
-  ngOnInit() {}
-
+  ngOnInit() {
+    this.coinGot = this.cryptoService.coinsNamed;
   }
 
+}

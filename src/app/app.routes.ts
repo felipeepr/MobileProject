@@ -19,4 +19,9 @@ export const routes: Routes = [
     path: 'my-profile',
     loadComponent: () => import('./pages/my-profile/my-profile.page').then( m => m.MyProfilePage)
   },
+  {
+    path: 'crypto-shop',
+    loadComponent: () => import('./pages/crypto-shop/crypto-shop.page').then( m => m.CryptoShopPage)
+  },
+
 ];

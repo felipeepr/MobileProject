@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>crypto-shop</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="BTC" *ngFor="let coin of coinGot">
+    <ion-img src="{{coin.img}}" class="img"></ion-img>
+    <ion-input labelPlacement="floating" value="{{coin.id}}">
+      <div slot="label">ID:<!--<ion-text color="danger">(Required):</ion-text> --></div>
+    </ion-input>
+    <ion-input labelPlacement="floating" value="{{coin.name}}">
+      <div slot="label">NAME: </div>
+    </ion-input>
+    <ion-input labelPlacement="floating" value="{{coin.price}}">
+      <div slot="label">PRICE ($): </div>
+    </ion-input>
+    <ion-button (click)="buy(coin.name)">BUY</ion-button>
+    <ion-button (click)="sell(coin.name, coin.id)">SOLD</ion-button>
+    <ion-button (click)="deleteCoin(coin.id)">REMOVE COIN</ion-button>
+  </div>
+  <div class="BTC" *ngFor="let coins of coinsList2">
+    <ion-img src="{{coins.img}}" class="img"></ion-img>
+    <ion-input labelPlacement="floating" value="{{coins.id}}">
+      <div slot="label">ID:<!--<ion-text color="danger">(Required):</ion-text> --></div>
+    </ion-input>
+    <ion-input labelPlacement="floating" value="{{coins.name}}">
+      <div slot="label">NAME: </div>
+    </ion-input>
+    <ion-input labelPlacement="floating" value="{{coins.price}}">
+      <div slot="label">PRICE ($): </div>
+    </ion-input>
+    <ion-button (click)="buy(coins.name)">BUY</ion-button>
+    <ion-button (click)="sell(coins.name, coins.id)">SOLD</ion-button>
+    <ion-button (click)="deleteCoin(coins.id)">REMOVE COIN</ion-button>
+  </div>
+  
+</ion-content>

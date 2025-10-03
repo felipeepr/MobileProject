@@ -9,6 +9,7 @@ import { addIcons } from 'ionicons';
 import { heart, logoApple, settingsSharp, star } from 'ionicons/icons';
 import { Coins } from 'src/app/data/classes/coins.model';
 import { CoinsInterface } from 'src/app/data/interfaces/coinsInterface.model';
+import { CryptoServices } from 'src/app/data/services/crypto-services';
 
 @Component({
   selector: 'app-home',
@@ -25,7 +26,7 @@ export class HomePage implements OnInit {
    }
 
   coinsList: CoinsInterface[] = [];
-
+  
   addCoin (newCoin: CoinsInterface) {
     this.coinsList.push(newCoin);
   }
