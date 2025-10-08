@@ -31,10 +31,6 @@ export class HomePage implements OnInit {
     this.coinsList.push(newCoin);
   }
 
-  removeCoin(id: number) {
-    this.coinsList = this.coinsList.filter(coin => coin.id !== id);
-  }
-
   ngOnInit() {
   }
 

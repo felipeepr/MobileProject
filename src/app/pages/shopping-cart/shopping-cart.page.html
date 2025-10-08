@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>shoppingCart</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+<div *ngFor="let cart of cartList" class="BTC">
+    <ion-img src="{{cart.img}}" class="img"></ion-img>
+    <ion-input labelPlacement="floating" value="{{cart.id}}">
+      <div slot="label">ID:<!--<ion-text color="danger">(Required):</ion-text> --></div>
+    </ion-input>
+    <ion-input labelPlacement="floating" value="{{cart.name}}">
+      <div slot="label">NAME: </div>
+    </ion-input>
+    <ion-input labelPlacement="floating" value="{{cart.price}}">
+      <div slot="label">PRICE ($): </div>
+    </ion-input>
+    <ion-button (click)="removeFromCart(cart)">Remove</ion-button>
+</div>
+</ion-content>

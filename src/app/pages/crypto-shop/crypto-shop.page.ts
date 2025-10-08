@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonInput, IonImg, IonButton, IonIcon, IonText} from '@ionic/angular/standalone';
 import { CryptoServices } from 'src/app/data/services/crypto-services';
 import { CoinsInterface } from 'src/app/data/interfaces/coinsInterface.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-crypto-shop',
@@ -13,10 +14,9 @@ import { CoinsInterface } from 'src/app/data/interfaces/coinsInterface.model';
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonInput, IonImg, IonButton, IonIcon, IonText, IonImg,  ]
 })
 export class CryptoShopPage implements OnInit {
-
+  private router = inject(Router)
   cryptoService = inject(CryptoServices);
-  coinGot: CoinsInterface[];
-  @Input() coinsList: CoinsInterface[] = [];
+  @Input() coinGot: CoinsInterface[] = [];
   @Output() coinDeleted = new EventEmitter<number>();
 
   coinsList2 = [
@@ -45,10 +45,17 @@ export class CryptoShopPage implements OnInit {
       price: 0.001,
     },
   ];
+  deleteCoin(id: CoinsInterface){
+    this.cryptoService.delCoins(id);
+  }
 
-  deleteCoin(id: number){
-    this.coinGot = this.coinsList.filter(coin => coin.id !== id);
-  }x
+  deletePreCreated(coin: CoinsInterface){
+    this.coinsList2.splice(this.coinsList2.indexOf(coin), 1);
+  }
+
+  addToCart(cart: CoinsInterface){
+    this.cryptoService.addToCart(cart);
+  }
 
   buy(i){
     alert(i + " BOUGHT");
@@ -58,15 +65,10 @@ export class CryptoShopPage implements OnInit {
     alert(i + " SOLD");
     this.deleteCoin(j);
   }
-/*
-  listCoin (img: string, id: number, name: string, price: number){
-    if (img != null && id != null && name != null && price != null){
-      this.coinsList.push({img: this.img, id: this.id, name: this.name, price: this.price});
-    } else {
-      alert("You're missing to fill a field")
-    }
+
+  goCart(){
+    this.router.navigate(['shopping-cart'])
   }
-*/
   constructor() { }
 
   ngOnInit() {

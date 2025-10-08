@@ -14,8 +14,9 @@ import { mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, heartOutlin
 export class AppComponent {
   public appPages = [
     { title: 'Home', url: '/home', icon: 'mail' },
-    { title: 'My-Profile', url: '/my-profile', icon: 'paper-plane' },
+    { title: 'List Coins', url: '/list-coins', icon: 'paper-plane' },
     { title: 'Crypto Shop', url: '/crypto-shop', icon: 'paper-plane' },
+    { title: 'Shopping Cart', url: '/shopping-cart', icon: 'paper-plane' },
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   constructor() {

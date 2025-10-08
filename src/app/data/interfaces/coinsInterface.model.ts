@@ -1,6 +1,6 @@
 export interface CoinsInterface {
     img: string,
     id: number,
-    name?: string,
+    name: string,
     price: number,
 }

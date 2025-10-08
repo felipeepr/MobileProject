@@ -1,0 +1,16 @@
+<ion-header [translucent]="true" class="header">
+  <ion-toolbar>
+    <ion-title>LIST COINS</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+<div class="BTC">
+  <p>LIST A COIN</p>
+  <ion-input [(ngModel)]="newCoin.img" label="IMAGE:" placeholder="Type the coin icon url"></ion-input>
+  <ion-input [(ngModel)]="newCoin.id" label="ID:" placeholder="Type the coin's ID"></ion-input>
+  <ion-input [(ngModel)]="newCoin.name" label="NAME" placeholder="Type the coin's name"></ion-input>
+  <ion-input [(ngModel)]="newCoin.price" label="PRICE" placeholder="Type the coin's price"></ion-input>
+  <ion-button (click)="createCoinService()">LIST COIN</ion-button>
+</div>
+</ion-content>
