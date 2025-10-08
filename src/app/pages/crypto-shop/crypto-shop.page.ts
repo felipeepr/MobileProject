@@ -53,8 +53,10 @@ export class CryptoShopPage implements OnInit {
     this.coinsList2.splice(this.coinsList2.indexOf(coin), 1);
   }
 
-  addToCart(cart: CoinsInterface){
+  addToCart(i, cart: CoinsInterface){
     this.cryptoService.addToCart(cart);
+    let message = "Coin: " +i+ " Added, check CART"
+    alert(message);
   }
 
   buy(i){

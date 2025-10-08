@@ -39,6 +39,12 @@
     align-content: center;
     font-family: cursive;
     display: inline-block;
+    color: white;
+}
+
+.page {
+    background: fixed;
+    background-color: rgb(26, 25, 25);
 }
 
 ion-input {
@@ -47,9 +53,42 @@ ion-input {
     margin-left: 20%;
 }
 
-.actionButtons {
+.buyButton {
+    --background: green;
     width: 50%;
     margin-left: 25%;
+    font-weight: bold;
+    color: black;
+}
+
+.sellButton {
+    --background: rgb(243, 119, 119);
+    width: 50%;
+    margin-left: 25%;
+    font-weight: bold;
+    color: black;
+}
+
+.deleteButton {
+    --background: rgb(255, 0, 0);
+    width: 50%;
+    margin-left: 25%;
+    font-weight: bold;
+    color: black;
+}
+
+.cartButton {
+    --background: rgb(255, 255, 255);
+    width: 50%;
+    margin-left: 25%;
+    font-weight: bold;
+    color: black;
+}
+
+.header {
+    background: fixed;
+    width: 100%;
+    background-color: rgb(26, 25, 25);
 }
 
 .title {
@@ -58,9 +97,25 @@ ion-input {
     display: inline-block;
     text-align: center;
     font-weight: bolder;
+    background: fixed;
 }
 
 .cart {
     display: inline-block;
-    width: 5%;
+    width: 4%;
+    border-style: groove;
+    border-radius: 10%;
+    border-color: black;
+    --background: rgb(247, 248, 250);
+}
+
+ion-icon {
+    color: black;
+}
+
+.cart:hover {
+    --background: yellow;
+    --background-hover: blue;
+    --background-activated: blue;
+    --background-focused: blue;
 }
