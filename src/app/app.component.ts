@@ -18,7 +18,7 @@ export class AppComponent {
     { title: 'Crypto Shop', url: '/crypto-shop', icon: 'paper-plane' },
     { title: 'Shopping Cart', url: '/shopping-cart', icon: 'paper-plane' },
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+  /*public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];  }*/
   constructor() {
     addIcons({ mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, heartOutline, heartSharp, archiveOutline, archiveSharp, trashOutline, trashSharp, warningOutline, warningSharp, bookmarkOutline, bookmarkSharp });
   }

@@ -68,6 +68,11 @@ export class CryptoShopPage implements OnInit {
     this.deleteCoin(j);
   }
 
+  sellPrecreated(i, j: CoinsInterface){
+    alert(i + " SOLD");
+    this.deletePreCreated(j);
+} 
+
   goCart(){
     this.router.navigate(['shopping-cart'])
   }

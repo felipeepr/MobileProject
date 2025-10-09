@@ -62,5 +62,10 @@ ion-input {
 
 .cart {
     display: inline-block;
-    width: 5%;
+    width: 20%;
+    vertical-align: top;
+    border-style: groove;
+    border-radius: 10%;
+    border-color: black;
+    --background: rgb(247, 248, 250);
 }

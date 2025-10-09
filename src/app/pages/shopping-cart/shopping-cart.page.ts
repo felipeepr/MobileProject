@@ -5,6 +5,7 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonImg, IonInpu
 import { CryptoServices } from 'src/app/data/services/crypto-services';
 import { CoinsInterface } from 'src/app/data/interfaces/coinsInterface.model';
 import { Coins } from 'src/app/data/classes/coins.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -14,6 +15,7 @@ import { Coins } from 'src/app/data/classes/coins.model';
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButton, IonImg, IonInput]
 })
 export class ShoppingCartPage implements OnInit {
+  private router = inject(Router);
   cryptoService = inject(CryptoServices);
   cartList: CoinsInterface[] = [];
   constructor() { }
@@ -22,6 +24,9 @@ export class ShoppingCartPage implements OnInit {
     this.cartList.splice(this.cartList.indexOf(item, 1));
   }
 
+  goToCryptoShop(){
+    this.router.navigate(['crypto-shop']);
+  }
   ngOnInit() {
     this.cartList = this.cryptoService.coinInCart;
   }

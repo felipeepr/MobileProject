@@ -5,7 +5,11 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-<div *ngFor="let cart of cartList" class="BTC">
+<div *ngIf="cartList.length<=0">
+<h1 width="100%">CART IS EMPTY, GO TO <ion-button (click)="goToCryptoShop()" class="cart">CRYPTO SHOP</ion-button> AND ADD SOMETHING</h1>
+
+</div>
+  <div *ngFor="let cart of cartList" class="BTC">
     <ion-img src="{{cart.img}}" class="img"></ion-img>
     <ion-input labelPlacement="floating" value="{{cart.id}}">
       <div slot="label">ID:<!--<ion-text color="danger">(Required):</ion-text> --></div>
@@ -17,5 +21,5 @@
       <div slot="label">PRICE ($): </div>
     </ion-input>
     <ion-button class="actionButtons" (click)="removeFromCart(cart)">Remove</ion-button>
-</div>
+  </div>
 </ion-content>

@@ -37,7 +37,7 @@
       <div slot="label">PRICE ($): </div>
     </ion-input>
     <ion-button class="buyButton" (click)="buy(coins.name)">BUY</ion-button>
-    <ion-button class="sellButton" (click)="sell(coins.name, coins.id)">SOLD</ion-button>
+    <ion-button class="sellButton" (click)="sellPrecreated(coins.name, coins)">SOLD</ion-button>
     <ion-button class="deleteButton" (click)="deletePreCreated(coins)">REMOVE COIN</ion-button>
     <ion-button class="cartButton" (click)="addToCart(coins.name, coins)">ADD TO CART</ion-button>
   </div>

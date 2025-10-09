@@ -11,6 +11,7 @@
   <ion-input [(ngModel)]="newCoin.id" label="ID:" placeholder="Type the coin's ID"></ion-input>
   <ion-input [(ngModel)]="newCoin.name" label="NAME" placeholder="Type the coin's name"></ion-input>
   <ion-input [(ngModel)]="newCoin.price" label="PRICE" placeholder="Type the coin's price"></ion-input>
-  <ion-button (click)="createCoinService()">LIST COIN</ion-button>
+  <ion-button (click)="createCoinService(newCoin.name)">LIST COIN</ion-button>
+  <ion-button (click)="goToCryptoShop()">CRYPTO SHOP</ion-button>
 </div>
 </ion-content>
