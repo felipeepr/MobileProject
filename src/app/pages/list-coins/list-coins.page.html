@@ -7,11 +7,13 @@
 <ion-content [fullscreen]="true">
 <div class="BTC">
   <p>LIST A COIN</p>
-  <ion-input [(ngModel)]="newCoin.img" label="IMAGE:" placeholder="Type the coin icon url"></ion-input>
-  <ion-input [(ngModel)]="newCoin.id" label="ID:" placeholder="Type the coin's ID"></ion-input>
-  <ion-input [(ngModel)]="newCoin.name" label="NAME" placeholder="Type the coin's name"></ion-input>
-  <ion-input [(ngModel)]="newCoin.price" label="PRICE" placeholder="Type the coin's price"></ion-input>
-  <ion-button (click)="createCoinService(newCoin.name)">LIST COIN</ion-button>
-  <ion-button (click)="goToCryptoShop()">CRYPTO SHOP</ion-button>
+  <form [formGroup]="listCoinForm" (ngSubmit)="saveInfo(newCoin.name)">
+    <ion-input formControlName="img" placeholder="IMAGE" [(ngModel)]="newCoin.img"></ion-input>
+    <ion-input formControlName="id" placeholder="ID" [(ngModel)]="newCoin.id"></ion-input>
+    <ion-input formControlName="name" placeholder="NAME" [(ngModel)]="newCoin.name" ></ion-input>
+    <ion-input formControlName="price" placeholder="PRICE" [(ngModel)]="newCoin.price" ></ion-input>
+    <ion-button type="submit">SAVE</ion-button>
+    <ion-button (click)="goToCryptoShop()">GO TO CRYPTO SHOP</ion-button>
+  </form>
 </div>
 </ion-content>
