@@ -1,5 +1,6 @@
 import { Component, EventEmitter, inject, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { FormBuilder, FormGroup, FormsModule, Validators, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonInput, IonImg, IonButton, IonIcon, IonText, IonLabel } from '@ionic/angular/standalone';
 import { CoinsInterface } from 'src/app/data/interfaces/coinsInterface.model';
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
   templateUrl: './list-coins.page.html',
   styleUrls: ['./list-coins.page.scss'],
   standalone: true,
-  imports: [ IonInput, FormsModule, ReactiveFormsModule, IonButton, IonLabel, IonContent, IonHeader, IonTitle, IonToolbar, IonImg, IonIcon, IonText],
+  imports: [ IonInput, FormsModule, ReactiveFormsModule, IonButton, IonLabel, IonContent, IonHeader, IonTitle, IonToolbar, IonImg, IonIcon, IonText, CommonModule],
 })
 export class listCoinsPage implements OnInit {
   private router = inject(Router)
@@ -19,6 +20,7 @@ export class listCoinsPage implements OnInit {
   @Output() coinCreated = new EventEmitter<CoinsInterface>();
   @Output() coinDel = new EventEmitter<CoinsInterface>();
   listCoinForm: FormGroup;
+  fb = inject(FormBuilder)
 
   img: string;
   id: number;
@@ -30,6 +32,8 @@ export class listCoinsPage implements OnInit {
       id: null,
       name: "",
       price: null,
+      description: "",
+      date: ""
   };
 
   newCoin2: CoinsInterface = {
@@ -37,9 +41,11 @@ export class listCoinsPage implements OnInit {
     id: null,
     name: "",
     price: null,
+    description: "",
+    date: ""
 };
 
-  constructor(private fb: FormBuilder) { }
+  constructor() { }
 
   ngOnInit() {
     this.createForm();
@@ -59,11 +65,11 @@ export class listCoinsPage implements OnInit {
   };
   */
   createForm(){
-    this.listCoinForm = this.fb.group({
-      img: ["", [Validators.required]],
-      id: [null, [Validators.required]],
-      name: ["", [Validators.required, Validators.minLength(2)]],
-      price: [null, [Validators.required]]
+    this.listCoinForm = new FormGroup({
+      img: new FormControl("", [Validators.required, Validators.pattern(/\.(png|jpg|jpeg)$/i)]),
+      id: new FormControl(null, [Validators.required]),
+      name: new FormControl("", [Validators.required, Validators.minLength(2)]),
+      price: new FormControl(null, [Validators.required])
     });
   };
 
@@ -77,9 +83,11 @@ export class listCoinsPage implements OnInit {
         id: null,
         name: "",
         price: null,
+        description: "",
+        date: ""
       }
     } else {
-      alert("The form isn't valid, please check the information again!")
+       this.listCoinForm.markAllAsTouched();
     }
   };
 

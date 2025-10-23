@@ -5,11 +5,16 @@ export class Coins implements CoinsInterface {
     id: number;
     name: string;
     price: number;
+    description: string;
+    date: string;
 
-    constructor(id: number, name: string, price: number) {
+    constructor(img: string, id: number, name: string, price: number, description: string, date: string) {
+        this.img = img;
         this.id = id;
         this.name = name;
         this.price = price;
+        this.description = description;
+        this.date = date;
     }
 
 }

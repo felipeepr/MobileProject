@@ -25,6 +25,8 @@ export class CreateCoinsComponent  implements OnInit {
       id: null,
       name: "",
       price: null,
+      description: "",  
+      date: ""
   };
 
   newCoin2: CoinsInterface = {
@@ -32,6 +34,8 @@ export class CreateCoinsComponent  implements OnInit {
     id: null,
     name: "",
     price: null,
+    description: "",
+    date: ""
 };
 
   constructor() { }
@@ -46,6 +50,8 @@ export class CreateCoinsComponent  implements OnInit {
       id: null,
       name: "",
       price: null,
+      description: "",
+      date: ""
     }
   };
 

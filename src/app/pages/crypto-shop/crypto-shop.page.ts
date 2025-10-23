@@ -25,24 +25,32 @@ export class CryptoShopPage implements OnInit {
       id: 1,
       name: "BTC",
       price: 115000,
+      description: "example",
+      date: "18/10/2025"
     },
     {
       img: "https://t4.ftcdn.net/jpg/07/72/94/23/360_F_772942398_uKpxMOAqDG2cunliJkDAn31b2LHzHKQU.jpg",
       id: 2,
       name: "ETH",
       price: 4000,
+      description: "example",
+      date: "18/10/2025"
     },
     {
       img: "https://diariobitcoin.b-cdn.net/wp-content/uploads/2025/05/solana-moneda-sol-diariobitcoin-public-domain.jpg",
       id: 3,
       name: "SOL",
       price: 187,
+      description: "example",
+      date: "18/10/2025"
     },
     {
       img: "https://s2.coinmarketcap.com/static/img/coins/200x200/30933.png",
       id: 3,
       name: "DOG",
       price: 0.001,
+      description: "example",
+      date: "18/10/2025"
     },
   ];
   deleteCoin(id: CoinsInterface){
