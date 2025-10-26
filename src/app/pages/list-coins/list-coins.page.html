@@ -7,21 +7,23 @@
 <ion-content [fullscreen]="true">
 <div class="BTC">
   <p>LIST A COIN</p>
-  <form [formGroup]="listCoinForm" (ngSubmit)="saveInfo(newCoin.name)">
-    <ion-input formControlName="img" placeholder="IMAGE"></ion-input>
-    <label *ngIf="listCoinForm.get('img')?.touched && listCoinForm.get('img')?.invalid">Image invalid, please check</label>
-    <ion-input formControlName="id" placeholder="ID"></ion-input>
-    <label *ngIf="listCoinForm.get('id')?.touched && listCoinForm.get('id')?.invalid && newCoin.id <= 0">id invalid, please check</label>
-    <ion-input formControlName="name" placeholder="NAME"></ion-input>
-    <label *ngIf="listCoinForm.get('name')?.touched && listCoinForm.get('name')?.invalid">name invalid, please check</label>
-    <ion-input formControlName="price" placeholder="PRICE" ></ion-input>
-    <label *ngIf="listCoinForm.get('price')?.touched && listCoinForm.get('price')?.invalid">Price invalid, please check</label>
-    <ion-input formControlName="description" placeholder="DESCRIPTION" ></ion-input>
-    <label *ngIf="listCoinForm.get('description')?.touched && listCoinForm.get('description')?.invalid">Description invalid, please check</label>
-    <ion-input formControlName="date" placeholder="DATE" ></ion-input>
-    <label *ngIf="listCoinForm.get('date')?.touched && listCoinForm.get('date')?.invalid">Date invalid, please check</label>
-    <ion-button type="submit">SAVE</ion-button>
+  <form [formGroup]="listCoinForm" (ngSubmit)="saveInfo(name)">
+    <ion-input formControlName="img" placeholder="IMAGE" value="{{newCoin.img}}"></ion-input>
+    <ion-input formControlName="id" placeholder="ID" value="{{newCoin.id}}"></ion-input>
+    <ion-input formControlName="name" placeholder="NAME" value="{{newCoin.name}}"></ion-input>
+    <ion-input formControlName="price" placeholder="PRICE" value="{{newCoin.price}}"></ion-input>
+    <ion-input formControlName="description" placeholder="DESCRIPTION" value="{{newCoin.description}}"></ion-input>
+    <ion-input formControlName="date" placeholder="DATE" value="{{newCoin.date}}"></ion-input>
+    <ion-button type="submit" *ngIf="listCoinForm.valid">SAVE</ion-button>
+    <ion-button type="submit" [disabled]="true" *ngIf="listCoinForm.invalid">INVALID FORM</ion-button>
     <ion-button (click)="goToCryptoShop()">GO TO CRYPTO SHOP</ion-button>
+    <br>
+    <label class="labels" *ngIf="listCoinForm.get('img')?.touched && listCoinForm.get('img')?.invalid">⚠️INVALID IMAGE, PLEASE TYPE NUMBERS<br></label>
+    <label class="labels" *ngIf="listCoinForm.get('id')?.touched && listCoinForm.get('id')?.invalid">⚠️INVALID ID, PLEASE TYPE NUMBERS<br></label>
+    <label class="labels" *ngIf="listCoinForm.get('name')?.touched && listCoinForm.get('name')?.invalid">⚠️INVALID NAME, PLEASE CHECK<br></label>
+    <label class="labels" *ngIf="listCoinForm.get('price')?.touched && listCoinForm.get('price')?.invalid">⚠️Price invalid, please check<br></label>
+    <label class="labels" *ngIf="listCoinForm.get('description')?.touched && listCoinForm.get('description')?.invalid">⚠️NULL DESCRIPTION, TYPE SOMETHING<br></label>
+    <label class="labels" *ngIf="listCoinForm.get('date')?.touched && listCoinForm.get('date')?.invalid">⚠️Date invalid, please check<br></label>
   </form>
 </div>
 </ion-content>

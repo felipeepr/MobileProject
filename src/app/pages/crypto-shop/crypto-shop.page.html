@@ -9,41 +9,49 @@
 
 <ion-content [fullscreen]="true">
   <div class="page">
-  <div class="BTC" *ngFor="let coin of coinGot">
-    <ion-img src="{{coin.img}}" class="img"></ion-img>
-    <ion-input labelPlacement="floating" value="{{coin.id}}">
-      <div slot="label">ID:<!--<ion-text color="danger">(Required):</ion-text> --></div>
-    </ion-input>
-    <ion-input labelPlacement="floating" value="{{coin.name}}">
-      <div slot="label">NAME: </div>
-    </ion-input>
-    <ion-input labelPlacement="floating" value="{{coin.price}}">
-      <div slot="label">PRICE ($): </div>
-    </ion-input>
-    <ion-input labelPlacement="floating" value="{{coin.description}}"></ion-input>
-    <ion-input labelPlacement="floating" value="{{coin.date}}"></ion-input>
-    <ion-button class="buyButton" (click)="buy(coin.name)">BUY</ion-button>
-    <ion-button class="sellButton" (click)="sell(coin.name, coin.id)">SOLD</ion-button>
-    <ion-button class="deleteButton" (click)="deleteCoin(coin)">REMOVE COIN</ion-button>
-    <ion-button class="cartButton" (click)="addToCart(coin.name, coin)">ADD TO CART</ion-button>
-  </div>
-  <div class="BTC" *ngFor="let coins of coinsList2">
-    <ion-img src="{{coins.img}}" class="img"></ion-img>
-    <ion-input labelPlacement="floating" value="{{coins.id}}">
-      <div slot="label">ID:<!--<ion-text color="danger">(Required):</ion-text> --></div>
-    </ion-input>
-    <ion-input labelPlacement="floating" value="{{coins.name}}">
-      <div slot="label">NAME: </div>
-    </ion-input>
-    <ion-input labelPlacement="floating" value="{{coins.price}}">
-      <div slot="label">PRICE ($): </div>
-    </ion-input>
-    <ion-input labelPlacement="floating" value="{{coins.description}}"></ion-input>
-    <ion-input labelPlacement="floating" value="{{coins.date}}"></ion-input>
-    <ion-button class="buyButton" (click)="buy(coins.name)">BUY</ion-button>
-    <ion-button class="sellButton" (click)="sell(coins.name, coins.id)">SOLD</ion-button>
-    <ion-button class="deleteButton" (click)="deletePreCreated(coins)">REMOVE COIN</ion-button>
-    <ion-button class="cartButton" (click)="addToCart(coins.name, coins)">ADD TO CART</ion-button>
-  </div>
+    <div class="BTC" *ngFor="let coin of coinGot.reverse()">
+      <ion-img src="{{coin.img}}" class="img"></ion-img>
+      <ion-input labelPlacement="floating" value="{{coin.id}}">
+        <div slot="label">ID:<!--<ion-text color="danger">(Required):</ion-text> --></div>
+      </ion-input>
+      <ion-input labelPlacement="floating" value="{{coin.name}}">
+        <div slot="label">NAME: </div>
+      </ion-input>
+      <ion-input labelPlacement="floating" value="{{coin.price}}">
+        <div slot="label">PRICE ($): </div>
+      </ion-input>
+      <ion-input labelPlacement="floating" value="{{coin.description}}">
+        <div slot="label">DESCRIPTION: </div>
+      </ion-input>
+      <ion-input labelPlacement="floating" value="{{coin.date}}">
+        <div slot="label">DATE: </div>
+      </ion-input>
+      <ion-button class="buyButton" (click)="buy(coin.name)">BUY</ion-button>
+      <ion-button class="sellButton" (click)="sell(coin.name, coin.id)">SOLD</ion-button>
+      <ion-button class="deleteButton" (click)="deleteCoin(coin)">REMOVE COIN</ion-button>
+      <ion-button class="cartButton" (click)="addToCart(coin.name, coin)">ADD TO CART</ion-button>
+    </div>
+    <div class="BTC" *ngFor="let coins of coinsList2">
+      <ion-img src="{{coins.img}}" class="img"></ion-img>
+      <ion-input labelPlacement="floating" value="{{coins.id}}">
+        <div slot="label">ID:<!--<ion-text color="danger">(Required):</ion-text> --></div>
+      </ion-input>
+      <ion-input labelPlacement="floating" value="{{coins.name}}">
+        <div slot="label">NAME: </div>
+      </ion-input>
+      <ion-input labelPlacement="floating" value="{{coins.price}}">
+        <div slot="label">PRICE ($): </div>
+      </ion-input>
+      <ion-input labelPlacement="floating" value="{{coins.description}}">
+        <div slot="label">DESCRIPTION: </div>
+      </ion-input>
+      <ion-input labelPlacement="floating" value="{{coins.date}}">
+        <div slot="label">DATE: </div>
+      </ion-input>
+      <ion-button class="buyButton" (click)="buy(coins.name)">BUY</ion-button>
+      <ion-button class="sellButton" (click)="sell(coins.name, coins.id)">SOLD</ion-button>
+      <ion-button class="deleteButton" (click)="deletePreCreated(coins)">REMOVE COIN</ion-button>
+      <ion-button class="cartButton" (click)="addToCart(coins.name, coins)">ADD TO CART</ion-button>
+    </div>
   </div>
 </ion-content>

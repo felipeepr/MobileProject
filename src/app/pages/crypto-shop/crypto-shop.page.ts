@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
 export class CryptoShopPage implements OnInit {
   private router = inject(Router)
   cryptoService = inject(CryptoServices);
-  @Input() coinGot: CoinsInterface[] = [];
+  @Input() coinGot: CoinsInterface[] = [].reverse();
   @Output() coinDeleted = new EventEmitter<number>();
 
   coinsList2 = [
@@ -53,6 +53,7 @@ export class CryptoShopPage implements OnInit {
       date: "18/10/2025"
     },
   ];
+
   deleteCoin(id: CoinsInterface){
     this.cryptoService.delCoins(id);
   }
@@ -87,7 +88,7 @@ export class CryptoShopPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.coinGot = this.cryptoService.coinsNamed;
+    this.coinGot = this.cryptoService.coinsNamed.reverse();
   }
 
 }
