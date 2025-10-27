@@ -1,10 +1,10 @@
 import { CoinsInterface } from "../interfaces/coinsInterface.model";
 
 export class Coins implements CoinsInterface {
-    img: string;
     id: number;
-    name: string;
+    title: string;
     price: number;
     description: string;
-    date: string;
+    category: string;
+    image: string;
 }

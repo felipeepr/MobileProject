@@ -21,21 +21,21 @@ export class CreateCoinsComponent  implements OnInit {
   name: string;
   price: number;
   newCoin: CoinsInterface = {
-      img: "",
-      id: null,
-      name: "",
-      price: null,
-      description: "",  
-      date: ""
+    id: null,
+    title: "",
+    price: null,
+    description: "",
+    category: "",
+    image: ""
   };
 
   newCoin2: CoinsInterface = {
-    img: "",
     id: null,
-    name: "",
+    title: "",
     price: null,
     description: "",
-    date: ""
+    category: "",
+    image: ""
 };
 
   constructor() { }
@@ -46,12 +46,12 @@ export class CreateCoinsComponent  implements OnInit {
   createCoin (){
     this.coinCreated.emit(this.newCoin);
     this.newCoin = {
-      img: "",
       id: null,
-      name: "",
+      title: "",
       price: null,
       description: "",
-      date: ""
+      category: "",
+      image: ""
     }
   };
 

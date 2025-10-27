@@ -9,15 +9,21 @@
 <h1>CART IS EMPTY, GO TO <ion-button (click)="goToCryptoShop()" class="cart">CRYPTO SHOP</ion-button> AND ADD SOMETHING</h1>
 </div>
   <div *ngFor="let cart of cartList" class="BTC">
-    <ion-img src="{{cart.img}}" class="img"></ion-img>
+    <ion-img src="{{cart.image}}" class="img"></ion-img>
     <ion-input labelPlacement="floating" value="{{cart.id}}">
       <div slot="label">ID:<!--<ion-text color="danger">(Required):</ion-text> --></div>
     </ion-input>
-    <ion-input labelPlacement="floating" value="{{cart.name}}">
-      <div slot="label">NAME: </div>
+    <ion-input labelPlacement="floating" value="{{cart.title}}">
+      <div slot="label">TITLE: </div>
     </ion-input>
     <ion-input labelPlacement="floating" value="{{cart.price}}">
       <div slot="label">PRICE ($): </div>
+    </ion-input>
+    <ion-input labelPlacement="floating" value="{{cart.description}}">
+      <div slot="label">DESCRIPTION: </div>
+    </ion-input>
+    <ion-input labelPlacement="floating" value="{{cart.category}}">
+      <div slot="label">CATEGORY: </div>
     </ion-input>
     <ion-button class="actionButtons" (click)="removeFromCart(cart)">Remove</ion-button>
   </div>

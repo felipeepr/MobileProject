@@ -1,8 +1,8 @@
 <div class="coin">
     <p>LIST A COIN</p>
-    <ion-input [(ngModel)]="newCoin.img" label="IMAGE:" placeholder="Type the coin icon url"></ion-input>
+    <ion-input [(ngModel)]="newCoin.image" label="IMAGE:" placeholder="Type the coin icon url"></ion-input>
     <ion-input [(ngModel)]="newCoin.id" label="ID:" placeholder="Type the coin's ID"></ion-input>
-    <ion-input [(ngModel)]="newCoin.name" label="NAME" placeholder="Type the coin's name"></ion-input>
+    <ion-input [(ngModel)]="newCoin.title" label="NAME" placeholder="Type the coin's name"></ion-input>
     <ion-input [(ngModel)]="newCoin.price" label="PRICE" placeholder="Type the coin's price"></ion-input>
     <ion-button (click)="createCoin()">REGISTRAR</ion-button>
     <ion-button (click)="createCoinService()">SERVICE</ion-button>

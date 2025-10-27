@@ -1,30 +1,30 @@
 <div class="BTC" *ngFor="let coin of coinsList">
-  <ion-img src="{{coin.img}}" class="img"></ion-img>
+  <ion-img src="{{coin.image}}" class="image"></ion-img>
   <ion-input labelPlacement="floating" value="{{coin.id}}">
     <div slot="label">ID:<!--<ion-text color="danger">(Required):</ion-text> --></div>
   </ion-input>
-  <ion-input labelPlacement="floating" value="{{coin.name}}">
-    <div slot="label">NAME: </div>
+  <ion-input labelPlacement="floating" value="{{coin.title}}">
+    <div slot="label">title: </div>
   </ion-input>
   <ion-input labelPlacement="floating" value="{{coin.price}}">
     <div slot="label">PRICE ($): </div>
   </ion-input>
-  <ion-button (click)="buy(coin.name)">BUY</ion-button>
-  <ion-button (click)="sell(coin.name, coin.id)">SOLD</ion-button>
+  <ion-button (click)="buy(coin.title)">BUY</ion-button>
+  <ion-button (click)="sell(coin.title, coin.id)">SOLD</ion-button>
   <ion-button (click)="deleteCoin(coin.id)">REMOVE COIN</ion-button>
 </div>
 <div class="BTC" *ngFor="let coins of coinsList2">
-  <ion-img src="{{coins.img}}" class="img"></ion-img>
+  <ion-img src="{{coins.image}}" class="image"></ion-img>
   <ion-input labelPlacement="floating" value="{{coins.id}}">
     <div slot="label">ID:<!--<ion-text color="danger">(Required):</ion-text> --></div>
   </ion-input>
-  <ion-input labelPlacement="floating" value="{{coins.name}}">
-    <div slot="label">NAME: </div>
+  <ion-input labelPlacement="floating" value="{{coins.title}}">
+    <div slot="label">title: </div>
   </ion-input>
   <ion-input labelPlacement="floating" value="{{coins.price}}">
     <div slot="label">PRICE ($): </div>
   </ion-input>
-  <ion-button (click)="buy(coins.name)">BUY</ion-button>
-  <ion-button (click)="sell(coins.name, coins.id)">SOLD</ion-button>
+  <ion-button (click)="buy(coins.title)">BUY</ion-button>
+  <ion-button (click)="sell(coins.title, coins.id)">SOLD</ion-button>
   <ion-button (click)="deleteCoin(coins.id)">REMOVE COIN</ion-button>
 </div>

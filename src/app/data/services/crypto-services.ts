@@ -11,7 +11,13 @@ export class CryptoServices{
   coins: CoinsInterface;
 
   saveCoins(newCoin: CoinsInterface){
-    this.coinsNamed.push(newCoin);
+    fetch('https://fakestoreapi.com/products', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(this.coinsNamed)
+    })
+      .then(response => response.json())
+      .then(data => {data = this.coinsNamed.push(newCoin)});
   }
 
   delCoins(id: CoinsInterface){

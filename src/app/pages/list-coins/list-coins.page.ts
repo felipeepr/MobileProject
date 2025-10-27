@@ -26,21 +26,13 @@ export class listCoinsPage implements OnInit {
   buttonS: string = "SAVE";
   fb = inject(FormBuilder)
   form: CoinsInterface[];
-  img: string;
   id: number;
-  name: string;
+  title: string;
   price: number;
-  description: ""
-  date: ""
+  description: string;
+  category: string;
+  image: string;
   coinsList: CoinsInterface[] = [];
-  newCoin: CoinsInterface = {
-      img: "",
-      id: null,
-      name: "",
-      price: null,
-      description: "",
-      date: ""
-  };
 
   constructor() { }
 
@@ -50,12 +42,12 @@ export class listCoinsPage implements OnInit {
 
   createForm(){
     this.listCoinForm = new FormGroup({
-      img: new FormControl("", [Validators.required, Validators.pattern(/\.(png|jpg|jpeg)$/i)]),
       id: new FormControl(null, [Validators.required, Validators.pattern('^[0-9]*$')]),
-      name: new FormControl("", [Validators.required]),
+      title: new FormControl("", [Validators.required]),
       price: new FormControl(null, [Validators.required]),
       description: new FormControl(null, [Validators.required, Validators.pattern(/^.*/)]),
-      date: new FormControl(null, [Validators.required, Validators.pattern(/^[A-Z-.*]$/)])
+      category: new FormControl(null, [Validators.required, Validators.pattern(/^[A-Z-.*]$/)]),
+      image: new FormControl("", [Validators.required, Validators.pattern(/\.(png|jpg|jpeg)$/i)]),
     });
   };
 
@@ -67,12 +59,12 @@ export class listCoinsPage implements OnInit {
       alert(message);
       this.listCoinForm.markAsUntouched()
       this.listCoinForm.setValue(
-        { img: "",
-          id: null,
-          name: "",
+        { id: null,
+          title: "",
           price: null,
           description: "",
-          date: null
+          category: "",
+          image: ""
         }
       )
     }

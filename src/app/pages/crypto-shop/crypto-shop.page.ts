@@ -21,36 +21,36 @@ export class CryptoShopPage implements OnInit {
 
   coinsList2 = [
     {
-      img: "https://www.criptofacil.com/es/wp-content/uploads/sites/2/2025/02/IMG_0183.png",
       id: 1,
-      name: "BTC",
+      title: "BTC",
       price: 115000,
       description: "example",
-      date: "18/10/2025"
+      category: "ExampleCategory",
+      image: "https://www.criptofacil.com/es/wp-content/uploads/sites/2/2025/02/IMG_0183.png",
     },
     {
-      img: "https://t4.ftcdn.net/jpg/07/72/94/23/360_F_772942398_uKpxMOAqDG2cunliJkDAn31b2LHzHKQU.jpg",
       id: 2,
-      name: "ETH",
+      title: "ETH",
       price: 4000,
       description: "example",
-      date: "18/10/2025"
+      category: "ExampleCategory",
+      image: "https://t4.ftcdn.net/jpg/07/72/94/23/360_F_772942398_uKpxMOAqDG2cunliJkDAn31b2LHzHKQU.jpg",
     },
     {
-      img: "https://diariobitcoin.b-cdn.net/wp-content/uploads/2025/05/solana-moneda-sol-diariobitcoin-public-domain.jpg",
       id: 3,
-      name: "SOL",
+      title: "SOL",
       price: 187,
       description: "example",
-      date: "18/10/2025"
+      category: "ExampleCategory",
+      image: "https://diariobitcoin.b-cdn.net/wp-content/uploads/2025/05/solana-moneda-sol-diariobitcoin-public-domain.jpg",
     },
     {
-      img: "https://s2.coinmarketcap.com/static/img/coins/200x200/30933.png",
       id: 3,
-      name: "DOG",
+      title: "DOG",
       price: 0.001,
       description: "example",
-      date: "18/10/2025"
+      category: "ExampleCategory",
+      image: "https://s2.coinmarketcap.com/static/img/coins/200x200/30933.png",
     },
   ];
 
@@ -64,7 +64,7 @@ export class CryptoShopPage implements OnInit {
 
   addToCart(i, cart: CoinsInterface){
     this.cryptoService.addToCart(cart);
-    let message = "Coin: " +i+ " Added, check CART"
+    let message = "Item: " +i+ " Added, check CART"
     alert(message);
   }
 
@@ -85,10 +85,15 @@ export class CryptoShopPage implements OnInit {
   goCart(){
     this.router.navigate(['shopping-cart'])
   }
-  constructor() { }
+
+  constructor() { 
+  }
 
   ngOnInit() {
     this.coinGot = this.cryptoService.coinsNamed.reverse();
+    fetch('https://fakestoreapi.com/products')
+    .then(response => response.json())
+    .then((data) => {this.coinsList2 = this.coinsList2.concat(data)});
   }
 
 }
