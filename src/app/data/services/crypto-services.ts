@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { CoinsInterface } from '../interfaces/coinsInterface.model'; 
 import { count } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
@@ -9,6 +10,8 @@ export class CryptoServices{
   coinsNamed: CoinsInterface[] = [];
   coinInCart: CoinsInterface[] = [];
   coins: CoinsInterface;
+  private http = inject(HttpClient);
+  apiURL = "https://fakestoreapi.com/products"
 
   saveCoins(newCoin: CoinsInterface){
     fetch('https://fakestoreapi.com/products', {
