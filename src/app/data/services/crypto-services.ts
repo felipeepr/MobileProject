@@ -10,6 +10,7 @@ export class CryptoServices{
   coinsNamed: CoinsInterface[] = [];
   coinInCart: CoinsInterface[] = [];
   coins: CoinsInterface;
+  
   private http = inject(HttpClient);
   apiURL = "https://fakestoreapi.com/products"
 

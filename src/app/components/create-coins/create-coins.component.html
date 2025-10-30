@@ -1,9 +1,33 @@
-<div class="coin">
-    <p>LIST A COIN</p>
-    <ion-input [(ngModel)]="newCoin.image" label="IMAGE:" placeholder="Type the coin icon url"></ion-input>
-    <ion-input [(ngModel)]="newCoin.id" label="ID:" placeholder="Type the coin's ID"></ion-input>
-    <ion-input [(ngModel)]="newCoin.title" label="NAME" placeholder="Type the coin's name"></ion-input>
-    <ion-input [(ngModel)]="newCoin.price" label="PRICE" placeholder="Type the coin's price"></ion-input>
-    <ion-button (click)="createCoin()">REGISTRAR</ion-button>
-    <ion-button (click)="createCoinService()">SERVICE</ion-button>
-  </div>
+<ion-header [translucent]="true" class="header">
+  <ion-toolbar>
+    <ion-title>LIST PRODUCTS</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+<div class="BTC">
+  <p>LIST A PRODUCT</p>
+  <form [formGroup]="listCoinForm" (ngSubmit)="saveInfo(listCoinForm.get('title').value)">
+    <ion-input formControlName="image" placeholder="IMAGE" value="{{image}}"></ion-input>
+    <ion-input formControlName="id" placeholder="ID" value="{{id}}"></ion-input>
+    <ion-input formControlName="title" placeholder="TITLE" value="{{title}}"></ion-input>
+    <ion-input formControlName="price" placeholder="PRICE" value="{{price}}"></ion-input>
+    <ion-input formControlName="description" placeholder="DESCRIPTION" value="{{description}}"></ion-input>
+    <ion-input formControlName="category" placeholder="CATEGORY" value="{{category}}"></ion-input>
+    <ion-input formControlName="rate" placeholder="RATE" value="{{rate}}"></ion-input>
+    <ion-input formControlName="count" placeholder="COUNT" value="{{count}}"></ion-input>
+    <ion-button type="submit" *ngIf="listCoinForm.valid">SAVE</ion-button>
+    <ion-button type="submit" [disabled]="true" *ngIf="listCoinForm.invalid">INVALID FORM</ion-button>
+    <ion-button (click)="goToCryptoShop()">GO TO CRYPTO SHOP</ion-button>
+    <br>
+    <ion-label class="labels" *ngIf="listCoinForm.get('id')?.touched && listCoinForm.get('id')?.invalid">⚠️INVALID ID, PLEASE TYPE NUMBERS<br></ion-label>
+    <ion-label class="labels" *ngIf="listCoinForm.get('title')?.touched && listCoinForm.get('title')?.invalid">⚠️INVALID title, PLEASE CHECK<br></ion-label>
+    <ion-label class="labels" *ngIf="listCoinForm.get('price')?.touched && listCoinForm.get('price')?.invalid">⚠️Price invalid, please check<br></ion-label>
+    <ion-label class="labels" *ngIf="listCoinForm.get('description')?.touched && listCoinForm.get('description')?.invalid">⚠️NULL DESCRIPTION, TYPE SOMETHING<br></ion-label>
+    <ion-label class="labels" *ngIf="listCoinForm.get('category')?.touched && listCoinForm.get('category')?.invalid">⚠️category invalid, please check<br></ion-label>
+    <ion-label class="labels" *ngIf="listCoinForm.get('image')?.touched && listCoinForm.get('image')?.invalid">⚠️INVALID IMAGE, PLEASE TYPE NUMBERS<br></ion-label>
+    <ion-label class="labels" *ngIf="listCoinForm.get('id')?.touched && listCoinForm.get('id')?.invalid">⚠️INVALID RATE, PLEASE TYPE NUMBERS<br></ion-label>
+    <ion-label class="labels" *ngIf="listCoinForm.get('id')?.touched && listCoinForm.get('id')?.invalid">⚠️INVALID COUNT, PLEASE TYPE NUMBERS<br></ion-label>
+  </form>
+</div>
+</ion-content>

@@ -1,3 +1,5 @@
+import { RatingInterface } from "./ratingInterface.model";
+
 export interface CoinsInterface {
     id: number;
     title: string;
@@ -5,4 +7,5 @@ export interface CoinsInterface {
     description: string;
     category: string;
     image: string;
+    rating: RatingInterface;
 }
