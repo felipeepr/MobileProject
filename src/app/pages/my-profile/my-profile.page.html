@@ -1,0 +1,22 @@
+<ion-header [translucent]="true" class="header">
+  <ion-toolbar>
+    <ion-title>MY PROFILE</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="profile">
+    <h1 class="profileLbl">{{title}}</h1>
+    <img src="../../../assets/Yo.jpg" class="photo">
+    <h4 class="nameLbl">NAME:</h4>
+    <p class="name">{{name}} {{lastName}}</p>
+    <h4 class="mailLbl">E-MAIL:</h4>
+    <p class="mail">{{mail}}</p>
+    <h4 class="locationLbl">BIRTH DATE:</h4>
+    <p class="location">{{birthDate | date:'longDate'}}</p>
+    <h4 class="titleLbl">JOB TITLE:</h4>
+    <p class="title">{{jobTitle}}</p>
+
+    
+  </div>
+</ion-content>

@@ -1,24 +1,26 @@
 import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonInput, IonImg, IonButton, IonIcon, IonText} from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonInput, IonImg, IonButton, IonIcon, IonText, IonItem} from '@ionic/angular/standalone';
 import { CryptoServices } from 'src/app/data/services/crypto-services';
 import { CoinsInterface } from 'src/app/data/interfaces/coinsInterface.model';
 import { Router } from '@angular/router';
+import { addIcons } from 'ionicons';
+import {arrowUpCircleOutline, cartOutline} from 'ionicons/icons';
 
 @Component({
   selector: 'app-crypto-shop',
   templateUrl: './crypto-shop.component.html',
   standalone: true,
   styleUrls: ['./crypto-shop.component.scss'],
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonInput, IonImg, IonButton, IonIcon, IonText, IonImg]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonInput, IonImg, IonButton, IonIcon, IonText, IonImg, IonItem]
 })
 export class CryptoShopComponent implements OnInit {
   private router = inject(Router)
   cryptoService = inject(CryptoServices);
   @Input() coinGot: CoinsInterface[] = [].reverse();
   @Output() coinDeleted = new EventEmitter<number>();
-
+  counter = this.cryptoService.coinInCart.length;
   coinsList2 = [
     {
       id: 1,
@@ -64,7 +66,7 @@ export class CryptoShopComponent implements OnInit {
       category: "ExampleCategory",
       image: "https://s2.coinmarketcap.com/static/img/coins/200x200/30933.png",
       rating: {
-        rate: 0,
+        rate: 1,
         count: 0
       }
     },
@@ -82,6 +84,7 @@ export class CryptoShopComponent implements OnInit {
     this.cryptoService.addToCart(cart);
     let message = "Item: " +i+ " Added, check CART"
     alert(message);
+    this.counter = this.cryptoService.coinInCart.length
   }
 
   buy(i){
@@ -103,6 +106,7 @@ export class CryptoShopComponent implements OnInit {
   }
 
   constructor() { 
+    addIcons({arrowUpCircleOutline, cartOutline});
   }
 
   ngOnInit() {
@@ -110,6 +114,7 @@ export class CryptoShopComponent implements OnInit {
     fetch('https://fakestoreapi.com/products')
     .then(response => response.json())
     .then((data) => {this.coinsList2 = this.coinsList2.concat(data)});
+    this.counter
   }
 
 }

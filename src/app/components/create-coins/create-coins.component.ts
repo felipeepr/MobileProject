@@ -46,21 +46,24 @@ export class CreateCoinsComponent implements OnInit {
       title: new FormControl("", [Validators.required]),
       price: new FormControl(null, [Validators.required]),
       description: new FormControl(null, [Validators.required, Validators.pattern(/^.*/)]),
-      category: new FormControl(null, [Validators.required, Validators.pattern(/^[A-Z-.*]$/)]),
+      category: new FormControl(null, [Validators.required, Validators.pattern(/^[A-Za-z\s-]+$/)]),
       image: new FormControl("", [Validators.required, Validators.pattern(/\.(png|jpg|jpeg)$/i)]),
-      rate: new FormControl(null, [Validators.required, Validators.pattern('^[0-9]*$')]),
-      count: new FormControl(null, [Validators.required, Validators.pattern('^[0-9]*$')])
+      rating: this.fb.group({
+        rate: new FormControl(null, [Validators.required, Validators.pattern('^[0-9]*$')]),
+        count: new FormControl(null, [Validators.required, Validators.pattern('^[0-9]*$')])
+      })
     });
   };
 
   saveInfo(i){
-    if(this.listCoinForm.valid ){
+    if(this.listCoinForm.valid){
       this.validForm = false;
       this.cryptoService.saveCoins(this.listCoinForm.value);
       let message = "Coin: " + i + " created, check the crypto shop";
       alert(message);
+      console.log(this.listCoinForm.value)
       this.listCoinForm.markAsUntouched()
-      this.listCoinForm.setValue(
+      this.listCoinForm.patchValue(
         { id: null,
           title: "",
           price: null,
