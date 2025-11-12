@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonInput, IonImg, IonButton, IonIcon, IonText } from '@ionic/angular/standalone';
@@ -10,6 +10,7 @@ import { heart, logoApple, settingsSharp, star } from 'ionicons/icons';
 import { Coins } from 'src/app/data/classes/coins.model';
 import { CoinsInterface } from 'src/app/data/interfaces/coinsInterface.model';
 import { CryptoServices } from 'src/app/data/services/crypto-services';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +20,7 @@ import { CryptoServices } from 'src/app/data/services/crypto-services';
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonInput, IonImg, IonButton, IonIcon, IonText, CryptoShopComponent, CreateCoinsComponent],
 })
 export class HomePage implements OnInit {
-  
+  private router = inject(Router)
   constructor() {
 
     addIcons({ heart, logoApple, settingsSharp, star });
@@ -29,6 +30,22 @@ export class HomePage implements OnInit {
   
   addCoin (newCoin: CoinsInterface) {
     this.coinsList.push(newCoin);
+  }
+
+  goToList(){
+    this.router.navigate(['list-coins'])
+  }
+
+  goToProfile(){
+    this.router.navigate(['my-profile'])
+  }
+
+  goToShop(){
+    this.router.navigate(['crypto-shop'])
+  }
+
+  goToCart(){
+    this.router.navigate(['shopping-cart'])
   }
 
   ngOnInit() {

@@ -6,6 +6,7 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonInput, IonImg, IonButto
 import { CoinsInterface } from 'src/app/data/interfaces/coinsInterface.model';
 import { CryptoServices } from 'src/app/data/services/crypto-services';
 import { Router } from '@angular/router';
+import { CryptoShopComponent } from '../crypto-shop/crypto-shop.component';
 
 @Component({
   selector: 'app-create-coins',
@@ -20,6 +21,7 @@ export class CreateCoinsComponent implements OnInit {
   /*@Output() coinCreated = new EventEmitter<CoinsInterface>();
   @Output() coinDel = new EventEmitter<CoinsInterface>();*/
   listCoinForm: FormGroup;
+  coinsShop: CryptoShopComponent
   validForm: boolean = true;
   buttonS: string = "SAVE";
   fb = inject(FormBuilder)
@@ -86,6 +88,7 @@ export class CreateCoinsComponent implements OnInit {
     }
   };
 
+  
   goToCryptoShop(){
     this.router.navigate(['crypto-shop'])
   }

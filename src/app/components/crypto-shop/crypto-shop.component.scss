@@ -68,6 +68,7 @@
     background: fixed;
     display: inline-block;
     background-color: rgb(0, 0, 0);
+    width: 100%;
 }
 
 .up {
@@ -114,4 +115,16 @@ ion-input {
     margin-left: 25%;
     font-weight: bold;
     color: black;
+}
+
+.load {
+    --background: #0374ff;
+    color: white;
+    width: 100%;
+}
+
+.load:hover {
+    --background: white;
+    color: black;
+    font-weight: bold;
 }

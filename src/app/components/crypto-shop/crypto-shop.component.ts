@@ -21,56 +21,7 @@ export class CryptoShopComponent implements OnInit {
   @Input() coinGot: CoinsInterface[] = [].reverse();
   @Output() coinDeleted = new EventEmitter<number>();
   counter = this.cryptoService.coinInCart.length;
-  coinsList2 = [
-    {
-      id: 1,
-      title: "BTC",
-      price: 115000,
-      description: "example",
-      category: "ExampleCategory",
-      image: "https://www.criptofacil.com/es/wp-content/uploads/sites/2/2025/02/IMG_0183.png",
-      rating: {
-        rate: 0,
-        count: 0
-      }
-    },
-    {
-      id: 2,
-      title: "ETH",
-      price: 4000,
-      description: "example",
-      category: "ExampleCategory",
-      image: "https://t4.ftcdn.net/jpg/07/72/94/23/360_F_772942398_uKpxMOAqDG2cunliJkDAn31b2LHzHKQU.jpg",
-      rating: {
-        rate: 0,
-        count: 0
-      }
-    },
-    {
-      id: 3,
-      title: "SOL",
-      price: 187,
-      description: "example",
-      category: "ExampleCategory",
-      image: "https://diariobitcoin.b-cdn.net/wp-content/uploads/2025/05/solana-moneda-sol-diariobitcoin-public-domain.jpg",
-      rating: {
-        rate: 0,
-        count: 0
-      }
-    },
-    {
-      id: 3,
-      title: "DOG",
-      price: 0.001,
-      description: "example",
-      category: "ExampleCategory",
-      image: "https://s2.coinmarketcap.com/static/img/coins/200x200/30933.png",
-      rating: {
-        rate: 1,
-        count: 0
-      }
-    },
-  ];
+  coinsList2 = [];
 
   deleteCoin(id: CoinsInterface){
     this.cryptoService.delCoins(id);
@@ -105,22 +56,24 @@ export class CryptoShopComponent implements OnInit {
     this.router.navigate(['shopping-cart'])
   }
 
-  constructor() { 
-    addIcons({arrowUpCircleOutline, cartOutline});
-  }
-
-  ngOnInit() {
-    this.coinGot = this.cryptoService.coinsNamed;
+  loadProds(){
     this.cryptoService.getPost().subscribe({
       next: (data) => {
-        this.coinsList2 = this.coinsList2.concat(this.coinGot.reverse()).concat(data)
+        this.coinsList2 = this.coinsList2.concat(this.cryptoService.coinsNamed.reverse()).concat(data)
         console.log(this.coinsList2)
       },
       error: (err) => {
         console.log("Error", err)
       }
     })
-    this.counter
+  }
+
+  constructor() { 
+    addIcons({arrowUpCircleOutline, cartOutline});
+  }
+
+  ngOnInit() {
+    this.counter = this.cryptoService.coinInCart.length
   }
 
 }

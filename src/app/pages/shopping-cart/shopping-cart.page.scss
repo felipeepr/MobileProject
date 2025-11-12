@@ -2,7 +2,6 @@
     background: fixed;
     background-color: black ;
     width: 25%;
-    height: 500px;
     margin: 10px 10px 10px 30px;
     border: 1px;
     border-style: solid;
@@ -20,12 +19,16 @@
     display: inline-block;
 }
 
-@media screen and (max-width:600px) {
-    .BTC {
-      display: inline-block;
-      width: 95%;
-    }
-  }
+ion-button {
+    --background: #0374ff;
+    color: white;
+}
+
+ion-button:hover {
+    --background: white;
+    color: black;
+    font-weight: bold;
+}
 
 .img {
     margin-top: 0px;
