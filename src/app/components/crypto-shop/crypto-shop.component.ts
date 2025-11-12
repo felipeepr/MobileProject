@@ -110,10 +110,16 @@ export class CryptoShopComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.coinGot = this.cryptoService.coinsNamed.reverse();
-    fetch('https://fakestoreapi.com/products')
-    .then(response => response.json())
-    .then((data) => {this.coinsList2 = this.coinsList2.concat(data)});
+    this.coinGot = this.cryptoService.coinsNamed;
+    this.cryptoService.getPost().subscribe({
+      next: (data) => {
+        this.coinsList2 = this.coinsList2.concat(this.coinGot.reverse()).concat(data)
+        console.log(this.coinsList2)
+      },
+      error: (err) => {
+        console.log("Error", err)
+      }
+    })
     this.counter
   }
 

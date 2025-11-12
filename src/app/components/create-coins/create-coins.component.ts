@@ -32,7 +32,6 @@ export class CreateCoinsComponent implements OnInit {
   image: string;
   rate: number;
   count: number
-  coinsList: CoinsInterface[] = [];
 
   constructor() { }
 
@@ -60,6 +59,14 @@ export class CreateCoinsComponent implements OnInit {
       this.validForm = false;
       this.cryptoService.saveCoins(this.listCoinForm.value);
       let message = "Coin: " + i + " created, check the crypto shop";
+      this.cryptoService.createPost(this.listCoinForm.value).subscribe({
+        next: (data) => {
+          console.log("Created", data)
+        },
+        error: (err) => {
+          console.log("ERROR", err)
+        }
+      });
       alert(message);
       console.log(this.listCoinForm.value)
       this.listCoinForm.markAsUntouched()
@@ -71,8 +78,8 @@ export class CreateCoinsComponent implements OnInit {
           category: "",
           image: "",
           rating: {
-            rate: 0,
-            count: 0
+            rate: null,
+            count: null
           }
         }
       )

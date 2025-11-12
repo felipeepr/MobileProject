@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { CoinsInterface } from '../interfaces/coinsInterface.model'; 
-import { count } from 'rxjs';
+import { count, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
@@ -15,13 +15,15 @@ export class CryptoServices{
   apiURL = "https://fakestoreapi.com/products"
 
   saveCoins(newCoin: CoinsInterface){
-    fetch('https://fakestoreapi.com/products', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(this.coinsNamed)
-    })
-      .then(response => response.json())
-      .then(data => {data = this.coinsNamed.push(newCoin)});
+    this.coinsNamed.push(newCoin);
+  }
+
+  createPost(newCoin: CoinsInterface): Observable<CoinsInterface[]>{
+    return this.http.post<CoinsInterface[]>(this.apiURL, newCoin);
+  }
+
+  getPost(): Observable<CoinsInterface[]>{
+    return this.http.get<CoinsInterface[]>(this.apiURL);
   }
 
   delCoins(id: CoinsInterface){

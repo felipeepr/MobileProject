@@ -7,42 +7,35 @@
 }
 
 .profile {
-    background: fixed;
-    background-color: gray;
-    border-top: 15px;
-    border: dotted;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 1%;
     text-align: center;
+    background: fixed;
+    background-color: black;
+    padding: 1%;
 }
 
 .profileLbl, .nameLbl, .mailLbl, .locationLbl, .titleLbl {
     background: fixed;
     font-weight: bold;
-    font-size: 25px;
-    text-align: center;
-    border-style: dotted;
-    border-radius: 50px;
-    width: 50%;
-    margin: 10px 10px 10px 25%;
+    font-size: 15px;
+    text-align: start;
+    margin-left: 10%;
 }
 
-.photo{
-    width: 15%;
-    margin: 1px 1px 1px 0%;
-    border-radius: 80%;
+
+img {
+    width: 10%;
+    border-radius: 40%;
 }
 
 .name, .mail, .location, .title {
-    color: black;
+    color: white;
     font-weight: bold;
     font-size: 20px;
     background: fixed;
     text-align: center;
     width: 50%;
     margin: 10px 10px 10px 25%;
-}
-
-.profile {
-    margin: 3% 10% 10% 25%;
-    width: 50%;
-    border-style: dotted;
 }

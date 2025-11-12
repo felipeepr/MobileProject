@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar} from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonInput, IonImg} from '@ionic/angular/standalone';
 import {CryptoShopComponent } from '../../components/crypto-shop/crypto-shop.component';
 
 @Component({
@@ -9,7 +9,7 @@ import {CryptoShopComponent } from '../../components/crypto-shop/crypto-shop.com
   templateUrl: './my-profile.page.html',
   standalone: true,
   styleUrls: ['./my-profile.page.scss'],
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, CryptoShopComponent],
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, CryptoShopComponent, IonButton, IonInput, IonImg],
 })
 export class MyProfilePage implements OnInit {
 
@@ -21,6 +21,11 @@ export class MyProfilePage implements OnInit {
   mail : string = "prietofelipe51@gmail.com";
   birthDate : Date = new Date(2002, 8, 18);
   jobTitle : string = "IT Support Analyst";
+  status: boolean = true;
+
+  changeImg(){
+    this.status = false;
+  }
   ngOnInit() {
   }
 

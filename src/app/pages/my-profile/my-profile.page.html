@@ -6,8 +6,11 @@
 
 <ion-content [fullscreen]="true">
   <div class="profile">
-    <h1 class="profileLbl">{{title}}</h1>
-    <img src="../../../assets/Yo.jpg" class="photo">
+    <div class="photo">
+      <img src='../../../assets/Yo.jpg'>
+    </div>
+    <ion-button (click)="changeImg()">CHANGE PROFILE IMAGE</ion-button>
+    <ion-input [disabled]="status" placeholder="TYPE AN URL OF AN IMAGE"></ion-input>
     <h4 class="nameLbl">NAME:</h4>
     <p class="name">{{name}} {{lastName}}</p>
     <h4 class="mailLbl">E-MAIL:</h4>
@@ -16,7 +19,5 @@
     <p class="location">{{birthDate | date:'longDate'}}</p>
     <h4 class="titleLbl">JOB TITLE:</h4>
     <p class="title">{{jobTitle}}</p>
-
-    
   </div>
 </ion-content>
