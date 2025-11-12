@@ -73,6 +73,7 @@ export class CryptoShopComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loadProds()
     this.counter = this.cryptoService.coinInCart.length
   }
 

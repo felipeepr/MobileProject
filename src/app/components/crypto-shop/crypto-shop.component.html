@@ -39,7 +39,6 @@
       <ion-button class="deleteButton" (click)="deleteCoin(coin)">REMOVE COIN</ion-button>
       <ion-button class="cartButton" (click)="addToCart(coin.title, coin)">ADD TO CART</ion-button>
     </div>
-    <ion-button (click)="loadProds()" *ngIf="coinsList2.length<1" class="load">LOAD PRODUCTS</ion-button>
     <div class="BTC" *ngFor="let coins of coinsList2" id="start">
       <ion-img src="{{coins.image}}" class="img"></ion-img>
       <ion-input labelPlacement="floating" value="{{coins.id}}">
