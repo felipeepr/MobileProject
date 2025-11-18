@@ -9,7 +9,7 @@
 
           @for (p of appPages; track p; let i = $index) {
             <ion-menu-toggle auto-hide="false">
-              <ion-item [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
+              <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
                 <ion-icon aria-hidden="true" slot="start" [name]="p.icon"></ion-icon>
                 <ion-label class="title">{{ p.title }}</ion-label>
               </ion-item>

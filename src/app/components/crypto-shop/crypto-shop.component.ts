@@ -54,24 +54,20 @@ export class CryptoShopComponent implements OnInit {
     this.router.navigate(['shopping-cart'])
   }
 
-  loadProds(){
+  constructor() { 
+    addIcons({arrowUpCircleOutline, cartOutline});
+  }
+
+  ngOnInit() {
     this.cryptoService.getPost().subscribe({
       next: (data) => {
-        this.coinsList2 = this.coinsList2.concat(this.cryptoService.coinsNamed.reverse()).concat(data)
+        this.coinsList2 = this.cryptoService.coinsNamed.concat(data)
         console.log(this.coinsList2)
       },
       error: (err) => {
         console.log("Error", err)
       }
     })
-  }
-
-  constructor() { 
-    addIcons({arrowUpCircleOutline, cartOutline});
-  }
-
-  ngOnInit() {
-    this.loadProds();
   }
 
 }

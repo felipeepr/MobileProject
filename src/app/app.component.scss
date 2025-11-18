@@ -22,6 +22,10 @@ ion-menu.md ion-note {
   padding-left: 10px;
 }
 
+.button {
+  width: 100%;
+}
+
 ion-menu.md ion-list#inbox-list {
   border-bottom: 1px solid var(--ion-background-color-step-150, rgb(0, 0, 0));
 }
