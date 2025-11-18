@@ -3,7 +3,7 @@
   <div class="header">
     <ion-title class="title">CRYPTO SHOP</ion-title>
     <ion-item class="cartContainer">
-    <ion-button (click)="goCart()" class="cartIcon"><ion-icon name="cart-outline" class="icon"></ion-icon>{{counter}}</ion-button>
+    <ion-button (click)="goCart()" class="cartIcon"><ion-icon name="cart-outline" class="icon"></ion-icon>{{cryptoService.coinInCart.length}}</ion-button>
     </ion-item>
   </div>
   </ion-toolbar>

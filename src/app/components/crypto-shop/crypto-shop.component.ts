@@ -20,7 +20,6 @@ export class CryptoShopComponent implements OnInit {
   cryptoService = inject(CryptoServices);
   @Input() coinGot: CoinsInterface[] = [].reverse();
   @Output() coinDeleted = new EventEmitter<number>();
-  counter = this.cryptoService.coinInCart.length;
   coinsList2 = [];
 
   deleteCoin(id: CoinsInterface){
@@ -35,7 +34,6 @@ export class CryptoShopComponent implements OnInit {
     this.cryptoService.addToCart(cart);
     let message = "Item: " +i+ " Added, check CART"
     alert(message);
-    this.counter = this.cryptoService.coinInCart.length
   }
 
   buy(i){
@@ -73,8 +71,7 @@ export class CryptoShopComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loadProds()
-    this.counter = this.cryptoService.coinInCart.length
+    this.loadProds();
   }
 
 }
